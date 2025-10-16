@@ -39,29 +39,27 @@ const BottomTab = () => {
   const pathname = usePathname();
 
   return (
-    <div className="border-t fixed bottom-0 rounded-t-lg shadow-up-md h-16 px-6 w-full flex items-center bg-background z-10">
-      <div className="max-w-6xl w-full mx-auto flex justify-between sm:justify-evenly">
-        {tabItems.map((item) => (
-          <Link key={item.name} href={item.href}>
-            <div
+    <div className="border fixed bottom-2 left-1/2 -translate-x-1/2 rounded-full h-16 px-6 w-[90%] sm:w-fit max-sm:justify-between flex items-center bg-background/50 z-10 sm:gap-10 backdrop-blur-xs">
+      {tabItems.map((item) => (
+        <Link key={item.name} href={item.href}>
+          <div
+            className={cn(
+              "flex flex-col items-center gap-1",
+              pathname === item.href && "text-primary"
+            )}
+          >
+            {item.icon}
+            <span
               className={cn(
-                "flex flex-col items-center gap-1",
-                pathname === item.href && "text-primary"
+                "text-xs",
+                pathname === item.href ? "font-semibold" : "font-medium"
               )}
             >
-              {item.icon}
-              <span
-                className={cn(
-                  "text-xs",
-                  pathname === item.href ? "font-semibold" : "font-medium"
-                )}
-              >
-                {item.name}
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
+              {item.name}
+            </span>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };

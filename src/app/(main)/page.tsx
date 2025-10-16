@@ -1,6 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { FolderOpen, PhoneCall } from "lucide-react";
 import Link from "next/link";
 
 const page = () => {
@@ -25,13 +24,13 @@ const page = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
           <Link href="/projects" className={cn(buttonVariants(), "btn")}>
-            View My Work <FolderOpen />
+            View My Work
           </Link>
           <Link
             href="/contact"
             className={cn(buttonVariants({ variant: "outline" }), "btn")}
           >
-            Contact Me <PhoneCall />
+            Contact Me
           </Link>
         </div>
       </div>

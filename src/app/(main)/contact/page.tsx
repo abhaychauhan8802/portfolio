@@ -10,22 +10,27 @@ import Link from "next/link";
 
 const ContactInfoCard = ({
   icon,
+  title,
   value,
   containerClassName,
 }: {
   icon: React.ReactNode;
+  title: string;
   value: string;
   containerClassName?: string;
 }) => {
   return (
     <div
       className={cn(
-        "flex items-center gap-2 py-2 rounded-sm",
+        "flex items-center gap-3 py-2 rounded-sm",
         containerClassName
       )}
     >
       <div className="p-2 rounded-xl bg-primary shrink-0">{icon}</div>
-      <span className="text-text-muted select-text">{value}</span>
+      <div>
+        <h4>{title}</h4>
+        <span className="text-text-muted select-text">{value}</span>
+      </div>
     </div>
   );
 };
@@ -54,19 +59,26 @@ const page = () => {
             <div className="space-y-4">
               <ContactInfoCard
                 icon={<Mail size={20} />}
+                title="Email"
                 value="abhaychauhan14744@gmail.com"
               />
               <ContactInfoCard
                 icon={<MapPin size={20} />}
+                title="Location"
                 value="Delhi NCR, India"
               />
               <Link href="https://github.com/abhaychauhan8802">
-                <ContactInfoCard icon={<Github size={20} />} value="Github" />
+                <ContactInfoCard
+                  icon={<Github size={20} />}
+                  title="Github"
+                  value="https://github.com/abhaychauhan8802"
+                />
               </Link>
               <Link href="https://linkedin.com/in/abhaychauhan07">
                 <ContactInfoCard
                   icon={<Linkedin size={20} />}
-                  value="Linkedin"
+                  title="Linkedin"
+                  value="https://linkedin.com/in/abhaychauhan07"
                   containerClassName="mt-4"
                 />
               </Link>
